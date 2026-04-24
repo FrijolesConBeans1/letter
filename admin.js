@@ -12,9 +12,12 @@ import {
 
 //  Protect admin page
 onAuthStateChanged(window.auth, (user) => {
-  if (!user || user.email !== "admin@letters.app" && user.email !== "gustavo@letters.app" ) {
-    window.location.href = "index.html";
-  }
+  const allowedUsers = ["admin@letters.app", "gustavo@letters.app"];
+
+if (!user || !allowedUsers.includes(user.email)) {
+  window.location.href = "index.html";
+}
+
 });
 
 document.getElementById("sendBtn").addEventListener("click", sendLetter);
