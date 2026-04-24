@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", sans-serif;
+}
+
+/* ---------- BACKGROUND ---------- */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eedee9;
+}
+
+/* ---------- CARD (main UI box) ---------- */
+#menu {
+  width: 350px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
+#adminMenu {
+  display: none;
+  width: 350px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#sendLetterSec {
+  width: 350px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
+
+
+
+
+
+/* ---------- BUTTONS ---------- */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 12px;
+  background: #e300c1;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #b5006d;
+}
+
+/* ---------- INPUTS ---------- */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: none;
+  background: #f1f1f1;
+  font-size: 14px;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* ---------- ENVELOPE GRID ---------- */
+#envelopeContainer {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ---------- ENVELOPE ---------- */
+.wrapper {
+  width: 220px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+/* lid */
+.lid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  border-bottom: 75px solid transparent;
+  transform-origin: top;
+  transition: 0.4s ease;
+  transition: transform 0.4s ease;
+
+}
+
+.lid.one {
+  border-top: 75px solid #f9d2fb;
+  transform: rotateX(0deg);
+  z-index: 4;
+  transition-delay: 1s;
+}
+
+.lid.two {
+  border-top: 75px solid #fc59f1;
+  transform: rotateX(90deg);
+  z-index: 2;
+  transition-delay: 0.75s;
+}
+
+/* hover animation */
+.wrapper:hover .lid.one {
+   transform: rotateX(90deg);
+    transition-delay: 0s;
+}
+
+.wrapper:hover .lid.two {
+  transform: rotateX(180deg);
+    transition-delay: 0.25s;
+}
+
+/* envelope body */
+.envelope {
+  position: absolute;
+  inset: 0;
+  border-left: 110px solid #f3bcf3;
+  border-right: 110px solid #f5b9f1;
+  border-bottom: 75px solid #f2aff9;
+  z-index: 3;
+  transition: transform 0.4s ease; 
+  
+}
+
+
+
+
+/* letter */
+.letter {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  top: 10px;
+  height: 70%;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  transition: 0.5s ease;
+  transition-delay: 0.5s;
+
+  z-index: 2;
+}
+
+/* letter rises */
+.wrapper:hover .letter {
+  top: -60%;
+}
+
+.wrapper:hover {
+  transform: translateY(20px) scale(1.02);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- LETTER VIEW ---------- */
+#letterSection {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#letterTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#fullLetter {
+  font-size: 15px;
+  color: #333;
+  margin-top: 10px;
+  padding: 10px;
+
+}
+
+.openBtn{
+  position: absolute;
+    top: 0;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    font-size: 14px
+}
+
+.sendTo{
+align-self: flex-start; /* move to left side */
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.sendFrom{
+align-self: flex-start; /* move to left side */
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.number {
+  margin: auto;
+  z-index: 3;
+
+}
+
+#letterPage{
+  display:none;
+  
+}
+
+#backToM {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: fit-content;
+}
