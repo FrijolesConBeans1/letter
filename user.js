@@ -28,6 +28,9 @@ function setupButtons(email) {
 }
 
 async function loadLetters(email, newestOnly) {
+  menu.style.display = "none";        // ✅ add this
+  letterPage.style.display = "block"; // ✅ add this
+
   try {
     const q = query(
       collection(window.db, "letters"),
@@ -52,34 +55,35 @@ async function loadLetters(email, newestOnly) {
 }
 
 function showEnvelopes(letters) {
-  menu.style.display = "none";
-  letterSection.style.display = "none";
-  letterPage.style.display = "block";
-
   const container = document.getElementById("envelopeContainer");
-  container.style.display = "flex";
-  container.innerHTML = "";
 
-  if (letters.length === 0) {
-    container.innerHTML = "<p>No letters yet 💌</p>";
-    return;
-  }
+  container.innerHTML = "";
+  container.style.display = "flex";
 
   letters.forEach((letter) => {
+    const toLetter = letter.to.replace("@letters.app", "");
+
     const wrapper = document.createElement("div");
     wrapper.className = "wrapper";
+
+    const isOpened = letter.opened === false;
+
     wrapper.innerHTML = `
-      <div class="lid one"></div>
-      <div class="lid two"></div>
-      <div class="envelope"></div>
+      <div class="${isOpened ? "lidO" : "lid"} one"></div>
+      <div class="${isOpened ? "lidO" : "lid"} two"></div>
+      <div class="${isOpened ? "envelopeO" : "envelope"}"></div>
       <div class="letter">
         <button class="openBtn">Open</button>
         <p class="sendFrom">From: ${letter.from}</p>
+        <p class="sendFrom">To: ${toLetter}</p>
         <p>${letter.subject}</p>
       </div>
     `;
 
-    wrapper.querySelector(".openBtn").addEventListener("click", () => openLetter(letter));
+    wrapper.querySelector(".openBtn").addEventListener("click", () => {
+      openLetter(letter);
+    });
+
     container.appendChild(wrapper);
   });
 }
@@ -89,7 +93,7 @@ function openLetter(letter) {
   letterSection.style.display = "flex";
 
   document.getElementById("letterTitle").innerText = letter.subject;
-  document.getElementById("fullLetter").innerText = letter.message;
+  document.getElementById("lether").innerText = letter.message;
 }
 
 // back from letter view → envelope grid

@@ -7,7 +7,8 @@
 
 /* ---------- BACKGROUND ---------- */
 body {
-  height: 100vh;
+  min-height: 100vh;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +16,17 @@ body {
 }
 
 /* ---------- CARD (main UI box) ---------- */
+
+#lether {
+  width: 650px;
+  padding: 15px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
 #menu {
   width: 350px;
   padding: 25px;
@@ -25,6 +37,9 @@ body {
   text-align: center;
 }
 
+#backBtn {
+  width: 50%;
+}
 
 #adminMenu {
   display: none;
@@ -190,6 +205,59 @@ textarea {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
+
+.lidO {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-left: 110px solid transparent;
+  border-right: 110px solid transparent;
+  border-bottom: 75px solid transparent;
+  transform-origin: top;
+  transition: 0.4s ease;
+  transition: transform 0.4s ease;
+
+}
+
+.lidO.one {
+  border-top: 75px solid #d2fbec;
+  transform: rotateX(0deg);
+  z-index: 4;
+  transition-delay: 1s;
+}
+
+.lidO.two {
+  border-top: 75px solid #59fc82;
+  transform: rotateX(90deg);
+  z-index: 2;
+  transition-delay: 0.75s;
+}
+
+/* hover animation */
+.wrapper:hover .lidO.one {
+   transform: rotateX(90deg);
+    transition-delay: 0s;
+}
+
+.wrapper:hover .lidO.two {
+  transform: rotateX(180deg);
+    transition-delay: 0.25s;
+}
+
+/* envelope body */
+.envelopeO {
+  position: absolute;
+  inset: 0;
+  border-left: 110px solid #bcedf3;
+  border-right: 110px solid #b9f5e0;
+  border-bottom: 75px solid #aff9b3;
+  z-index: 3;
+  transition: transform 0.4s ease; 
+  
+}
+
+
 /* ---------- LETTER VIEW ---------- */
 #letterSection {
   display: none;
@@ -204,10 +272,13 @@ textarea {
 }
 
 #fullLetter {
+
   font-size: 15px;
+  background-color: #eedee9;
   color: #333;
   margin-top: 10px;
   padding: 10px;
+
 
 }
 

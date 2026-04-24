@@ -29,11 +29,12 @@ async function sendLetter() {
   }
 
   const letter = {
-    to: toUsername + "Zoe", // convert username
-    from: "Gustavo",
+    to: toUsername + "@letters.app", //  username
+    from: document.getElementById('sendFrom').value,
     subject,
     message,
-    createdAt: Date.now()
+    createdAt: Date.now(),
+    opened: null
   };
 
   try {
