@@ -12,7 +12,7 @@ import {
 
 //  Protect admin page
 onAuthStateChanged(window.auth, (user) => {
-  if (!user || user.email !== "admin@letters.app") {
+  if (!user || user.email !== "admin@letters.app" && user.email !== "gustavo@letters.app" ) {
     window.location.href = "index.html";
   }
 });
