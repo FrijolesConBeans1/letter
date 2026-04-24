@@ -15,6 +15,49 @@ body {
   background: #eedee9;
 }
 
+#newLetter {
+  
+  position: absolute;
+  top: -25px;     /* move UP outside */
+  right: -25px;   /* move RIGHT outside */
+  width: fit-content;
+  background: #ff00fb;
+  scale: 0.75;
+
+  animation-duration: 1s;
+  animation-name: attention;
+  animation-timing-function: ease-in-out;
+  
+}
+
+
+@keyframes attention {
+  0%{
+
+  }
+
+  50%{
+    transform: rotate(30deg);
+    scale: 1.1;
+  }
+
+  60%{
+    transform: rotate(-30deg);
+    scale: 1.1;
+  }
+
+  70%{
+    transform: rotate(-30deg);
+    scale: 1.1;
+  }
+
+  100%{
+  }
+
+}
+
+
+
 /* ---------- CARD (main UI box) ---------- */
 
 #lether {
@@ -28,7 +71,9 @@ body {
 }
 
 #menu {
-  width: 350px;
+   position: relative;
+  width: fit-content;   
+  max-width: 350px;  
   padding: 25px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.7);
@@ -104,14 +149,17 @@ textarea {
 
 /* ---------- ENVELOPE GRID ---------- */
 #envelopeContainer {
+  width: 1300px;
+  padding-top: 200px;
   display: none;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 70px;
 }
 
 /* ---------- ENVELOPE ---------- */
 .wrapper {
+  isolation: isolate;
   width: 220px;
   height: 150px;
   position: relative;
@@ -319,4 +367,5 @@ align-self: flex-start; /* move to left side */
   top: 10%;
   right: 10%;
   width: fit-content;
+  z-index: 10;
 }

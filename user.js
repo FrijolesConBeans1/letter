@@ -30,6 +30,7 @@ function setupButtons(email) {
 async function loadLetters(email, newestOnly) {
   menu.style.display = "none";        // ✅ add this
   letterPage.style.display = "block"; // ✅ add this
+   document.getElementById("newLetter").style.display = "none";
 
   try {
     const q = query(
@@ -55,6 +56,8 @@ async function loadLetters(email, newestOnly) {
 }
 
 function showEnvelopes(letters) {
+  
+
   const container = document.getElementById("envelopeContainer");
 
   container.innerHTML = "";
@@ -66,7 +69,7 @@ function showEnvelopes(letters) {
     const wrapper = document.createElement("div");
     wrapper.className = "wrapper";
 
-    const isOpened = letter.opened === false;
+    const isOpened = letter.opened === true;
 
     wrapper.innerHTML = `
       <div class="${isOpened ? "lidO" : "lid"} one"></div>
@@ -79,7 +82,7 @@ function showEnvelopes(letters) {
         <p>${letter.subject}</p>
       </div>
     `;
-
+    
     wrapper.querySelector(".openBtn").addEventListener("click", () => {
       openLetter(letter);
     });
@@ -89,6 +92,7 @@ function showEnvelopes(letters) {
 }
 
 function openLetter(letter) {
+
   letterPage.style.display = "none";
   letterSection.style.display = "flex";
 

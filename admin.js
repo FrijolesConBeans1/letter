@@ -51,6 +51,9 @@ async function sendLetter() {
     console.error(err);
     alert("Failed to send");
   }
+
+  document.getElementById('newLetter').style.display = 'block';
+
 }
 
 // Logout

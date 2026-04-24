@@ -25,7 +25,6 @@ async function login() {
     localStorage.setItem("currentUser", user.email);
 
     //  route user
-    
     if (user.email === "admin@letters.app" || user.email === "gustavo@letters.app") {
       window.location.href = "admin.html";
     } else {
