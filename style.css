@@ -16,6 +16,18 @@ body {
   perspective: 800px;
 }
 
+.admin{
+  background-color: #dee8ee;
+}
+
+.adminB {
+  background: #0053e3;
+}
+
+.adminB:hover {
+  background: #0036b5;
+}
+
 /* example: only move/scale/rotate Z/Y, NOT rotateX */
 
 
@@ -249,7 +261,7 @@ body {
 }
 
 #adminMenu {
-  display: none;
+  display: block;
   width: 350px;
   padding: 25px;
   border-radius: 20px;
@@ -260,6 +272,7 @@ body {
 }
 
 #sendLetterSec {
+  display: none;
   width: 350px;
   padding: 25px;
   border-radius: 20px;

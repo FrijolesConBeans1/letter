@@ -21,15 +21,29 @@ if (!user || !allowedUsers.includes(user.email)) {
 });
 
 document.getElementById("sendBtn").addEventListener("click", sendLetter);
+document.getElementById("loadLetterSec").addEventListener("click", loadLetterMenu);
+
+async function loadLetterMenu() {
+  try{
+    document.getElementById('sendLetterSec').style.display = 'block';
+    document.getElementById('adminMenu').style.display = 'none';
+  } catch {
+     return alert("Error loading");
+  }
+}
 
 async function sendLetter() {
   const toUsername = document.getElementById("sendTo").value;
   const subject = document.getElementById("subject").value;
   const message = document.getElementById("message").value;
 
+  
+
   if (!toUsername || !subject || !message) {
     return alert("Fill everything");
   }
+
+  
 
   const letter = {
     to: toUsername + "@letters.app", //  username
@@ -55,8 +69,20 @@ async function sendLetter() {
     alert("Failed to send");
   }
 
+    try{
+      loadMenu();
+    } catch{
+      alert("Failed to send");
+    }
+
+
   document.getElementById('newLetter').style.display = 'block';
 
+}
+
+async function loadMenu(){
+  document.getElementById('sendLetterSec').style.display = 'none';
+  document.getElementById('adminMenu').style.display = 'block';
 }
 
 // Logout
