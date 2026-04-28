@@ -7,6 +7,7 @@
 
 /* ---------- BACKGROUND ---------- */
 body {
+  width: 100%;
   min-height: 100vh;
   overflow-y: auto;
   display: flex;
@@ -325,7 +326,7 @@ textarea {
 
 /* ---------- ENVELOPE GRID ---------- */
 #envelopeContainer {
-  width: 1300px;
+  width: 100%;
   padding-top: 200px;
   display: none;
   flex-wrap: wrap;
