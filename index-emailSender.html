@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>send Email</title>
+  <link rel="stylesheet" href="style.css">
+
+   <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "CC3EaDULUxZFwgMNJ",
+      });
+   })();
+</script>
+
+
+
+</head>
+<body>
+
+<div id="menu">
+  <h2>Send To:</h2>
+  <input id="name" placeholder="name">
+  <input id="email" type="email" placeholder="email">
+  <input id="subject" placeholder="subject">
+  <button id="loginBtn" onclick="sendMail()">Send</button>
+</div>
+
+<script type="module" src="firebase.js"></script>
+<script src="email.js"></script>
+</body>
+</html>

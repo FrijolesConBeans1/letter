@@ -58,6 +58,7 @@ async function sendLetter() {
     await addDoc(collection(window.db, "letters"), letter);
 
     alert("Letter sent 💌");
+    sendMail();
 
     // clear inputs
     document.getElementById("sendTo").value = "";
@@ -71,6 +72,7 @@ async function sendLetter() {
 
     try{
       loadMenu();
+      
     } catch{
       alert("Failed to send");
     }
@@ -83,6 +85,23 @@ async function sendLetter() {
 async function loadMenu(){
   document.getElementById('sendLetterSec').style.display = 'none';
   document.getElementById('adminMenu').style.display = 'block';
+}
+
+function sendMail() {
+
+    let parms = {
+        name: "Zoe",
+        email: "S1801282@online.houstonisd.org",
+        subject: "New Letter",
+    };
+
+    emailjs.send("service_g2u2atq", "template_0h9i08w", parms)
+    .then(function(response) {
+        alert("Email Sent!");
+    })
+    .catch(function(error) {
+    alert("Error: " + error.text);
+});
 }
 
 // Logout
