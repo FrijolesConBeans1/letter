@@ -83,9 +83,14 @@ function showEnvelopes(letters) {
       </div>
     `;
     
-    wrapper.querySelector(".openBtn").addEventListener("click", () => {
-      openLetter(letter);
-    });
+    wrapper.addEventListener("click", () => {
+  wrapper.classList.toggle("opened");
+});
+
+wrapper.querySelector(".openBtn").addEventListener("click", (e) => {
+  e.stopPropagation(); // stops the wrapper click from also running
+  openLetter(letter);
+});
 
     container.appendChild(wrapper);
   });

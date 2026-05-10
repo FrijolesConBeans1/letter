@@ -6,6 +6,8 @@
 }
 
 /* ---------- BACKGROUND ---------- */
+
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -15,6 +17,7 @@ body {
   align-items: center;
   background: #eedee9;
   perspective: 800px;
+  padding: 20px;
 }
 
 .admin{
@@ -245,10 +248,11 @@ body {
   text-align: center;
 }
 
+
 #menu {
-   position: relative;
-  width: fit-content;   
-  max-width: 350px;  
+  position: relative;
+  width: 90%;
+  max-width: 350px;
   padding: 25px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.7);
@@ -282,12 +286,6 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
 }
-
-
-
-
-
-
 
 /* ---------- BUTTONS ---------- */
 button {
@@ -545,4 +543,55 @@ align-self: flex-start; /* move to left side */
   right: 10%;
   width: fit-content;
   z-index: 10;
+}
+
+@media (max-width: 480px) {
+  #menu {
+    width: 100%;
+    max-width: 340px;
+    padding: 22px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  input,
+  button {
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  button:hover {
+    scale: 1;
+  }
+}
+
+/* click/tap version of hover */
+.wrapper.opened .lid.one {
+  transform: rotateX(90deg);
+  transition-delay: 0s;
+}
+
+.wrapper.opened .lid.two {
+  transform: rotateX(180deg);
+  transition-delay: 0.25s;
+}
+
+.wrapper.opened .lidO.one {
+  transform: rotateX(90deg);
+  transition-delay: 0s;
+}
+
+.wrapper.opened .lidO.two {
+  transform: rotateX(180deg);
+  transition-delay: 0.25s;
+}
+
+.wrapper.opened .letter {
+  top: -60%;
+}
+
+.wrapper.opened {
+  transform: translateY(20px) scale(1.02);
 }
